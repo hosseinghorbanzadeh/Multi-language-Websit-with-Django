@@ -1,2 +1,2 @@
 # Multi-language-Websit-with-Django
-This is a sample example of how to create a multi language with Django
+This is a sample example of how to create a multi language Website using  with Django.The main focus of this project is on demonstrating internatinalization 
