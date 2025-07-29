@@ -2,5 +2,5 @@ from django.shortcuts import render,HttpResponse
 
 # Create your views here.
 def index_view(request):
-    #return render(request,'index.html')
-    return HttpResponse("Hello Word ")
+    return render(request,'website/index.html')
+    #return HttpResponse("Hello Word ")
