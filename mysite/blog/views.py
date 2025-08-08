@@ -55,7 +55,7 @@ def test(request):
             return HttpResponse('The form was not saved successfully.!')
 
     form = Contactform()
-    return render(request,'test.html',{"form": form})
+    return render(request,'website/blog-post-1.html',{"form": form})
 
 
 
