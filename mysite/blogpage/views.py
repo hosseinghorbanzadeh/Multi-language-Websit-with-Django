@@ -10,8 +10,9 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
-
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 # Create your views here.
+'''
 def blog_view(request,**kwargs):
     all_tags = Tag.objects.all()
     now=timezone.now()
@@ -24,7 +25,7 @@ def blog_view(request,**kwargs):
     if kwargs.get('tag_name') != None:
         posts = posts.filter(tags__name__in=[kwargs['tag_name']])
     
-    posts=Paginator(posts,3)
+    posts=Paginator(posts,4)
 
     try:
         page_number = request.GET.get("page")
@@ -38,6 +39,29 @@ def blog_view(request,**kwargs):
               "all_tags": all_tags,
              }
     return render(request,'blog/blog-home.html',context)
+'''
+
+
+
+
+def blog_view(request, **kwargs):
+    all_tags = Tag.objects.all()
+    now = timezone.now()
+    posts = Post.objects.filter(published_date__lte=now, status=True)
+    
+    if kwargs.get('cat_name') is not None:
+        posts = posts.filter(category__name=kwargs['cat_name'])
+    if kwargs.get('author_username') is not None:
+        posts = posts.filter(author__username=kwargs['author_username'])
+    if kwargs.get('tag_name') is not None:
+        posts = posts.filter(tags__name__in=[kwargs['tag_name']])
+    
+    context = {
+        "posts": posts,
+        "all_tags": all_tags,
+    }
+    return render(request, 'blog/blog-home.html', context)
+
 
 
 def blog_single(request,pid):

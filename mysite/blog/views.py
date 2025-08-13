@@ -9,6 +9,26 @@ from django.utils import timezone
 from taggit.models import Tag
 
 # Create your views here.
+'''
+def index_view(request, **kwargs):
+    all_tags = Tag.objects.all()
+    now = timezone.now()
+    posts = Post.objects.filter(published_date__lte=now, status=True)
+    
+    if kwargs.get('cat_name') is not None:
+        posts = posts.filter(category__name=kwargs['cat_name'])
+    if kwargs.get('author_username') is not None:
+        posts = posts.filter(author__username=kwargs['author_username'])
+    if kwargs.get('tag_name') is not None:
+        posts = posts.filter(tags__name__in=[kwargs['tag_name']])
+    
+    context = {
+        "posts": posts,
+        "all_tags": all_tags,
+    }
+    print('========================',posts.count())
+    return render(request,'website/index.html',context)
+'''
 
 def index_view(request,**kwargs):
     all_tags = Tag.objects.all()

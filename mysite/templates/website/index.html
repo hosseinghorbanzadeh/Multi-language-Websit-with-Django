@@ -617,7 +617,11 @@
                           <a href="blog-post-1.html">
                             <img class="post-image img-responsive" src="{{post.image.url}}"  alt="">
                             <div class="mask"></div>
-                            <div class="post-date"><span class="day">{{post.published_date|date:"d"}}</span><span class="month">{{post.published_date|date:"M"}}</span><!--<span class="year">2016</span>--></div>
+                            <div class="post-date">
+                              <span class="day">{{post.published_date|date:"d"}}</span>
+                              <span class="month">{{post.published_date|date:"M"}}</span>
+                              <span class="year">{{post.published_date|date:"Y"}}</span>
+                            </div>
                           </a>
                         </div>
                         <div class="post-info">
@@ -645,103 +649,73 @@
                 </div>
               </div>
             </section>
-            <!-- /Blog Subpage -->
-
-            <!-- Contact Subpage -->
-            <section class="pt-page" data-id="contact">
+            <section class="pt-page" data-id="blog">
               <div class="section-inner custom-page-content">
                 <div class="page-header color-1">
-                  <h2>Contact</h2>
+                  <h2>Blog</h2>
                 </div>
                 <div class="page-content">
-
-                  <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="block-title">
-                        <h3>Get in <span>Touch</span></h3>
-                      </div>
-                      <!-- Google Map -->
-                      <div id="map" class="map"></div>
-                      <!-- End of Google Map -->
-
-                      <div class="contact-info-block">
-                        <div class="ci-icon">
-                          <i class="fa fa-map-marker"></i>
-                        </div>
-                        <div class="ci-text">
-                          <h5>Asaluyeh, Bushehr</h5>
-                        </div>
-                      </div>
-                      <div class="contact-info-block">
-                        <div class="ci-icon">
-                          <i class="fa fa-envelope"></i>
-                        </div>
-                        <div class="ci-text">
-                          <h5>h.ghorbanzadeh@mekpco.ir</h5>
-                        </div>
-                      </div>
-                      <div class="contact-info-block">
-                        <div class="ci-icon">
-                          <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="ci-text">
-                          <h5>+989166417234</h5>
-                        </div>
-                      </div>
-                      <div class="contact-info-block">
-                        <div class="ci-icon">
-                          <i class="fa fa-check"></i>
-                        </div>
-                        <div class="ci-text">
-                          <h5>Freelance Available</h5>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-                      <div class="block-title">
-                        <h3>Contact <span>Form</span></h3>
-                      </div>
-                      <form id="contact-form" method="post" action="contact_form/contact_form.php">
-
-                        <div class="messages"></div>
-
-                        <div class="controls">
-                          <div class="form-group form-group-with-icon">
-                            <i class="fa fa-user"></i>
-                            <label>Full Name</label>
-                            <input id="form_name" type="text" name="name" class="form-control" placeholder required="required" data-error="Name is required.">
-                            <div class="form-control-border"></div>
-                            <div class="help-block with-errors"></div>
+            
+                  <!-- Blog Posts Grid -->
+                  <div class="blog-masonry two-columns">
+                    {% for post in posts %}
+                      <div class="item">
+                        <div class="blog-card">
+                          <div class="media-block">
+                            <a href="{% url 'blogpage:single' pid=post.id %}">
+                              <img class="post-image img-responsive" src="{{ post.image.url }}" alt="">
+                              <div class="mask"></div>
+                              <div class="post-date">
+                                <span class="day">{{ post.published_date|date:"d" }}</span>
+                                <span class="month">{{ post.published_date|date:"M" }}</span>
+                                <span class="year">{{ post.published_date|date:"Y" }}</span>
+                              </div>
+                            </a>
                           </div>
-
-                          <div class="form-group form-group-with-icon">
-                            <i class="fa fa-envelope"></i>
-                            <label>Email Address</label>
-                            <input id="form_email" type="email" name="email" class="form-control" placeholder required="required" data-error="Valid email is required.">
-                            <div class="form-control-border"></div>
-                            <div class="help-block with-errors"></div>
+                          <div class="post-info">
+                            <ul class="category">
+                              <li>
+                                {% for cat in post.category.all %}
+                                  <a href="{% url 'blogpage:category' cat_name=cat.name %}">{{ cat.name }}</a>{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                              </li>
+                            </ul>
+                            <a class="blog-item-title" href="{% url 'blogpage:single' pid=post.id %}">
+                              <h3>{{ post.title|truncatewords:5|safe }}</h3>
+                            </a>
                           </div>
-
-                          <div class="form-group form-group-with-icon">
-                            <i class="fa fa-comment"></i>
-                            <label>Message for Me</label>
-                            <textarea id="form_message" name="message" class="form-control" placeholder rows="4" required="required" data-error="Please, leave me a message."></textarea>
-                            <div class="form-control-border"></div>
-                            <div class="help-block with-errors"></div>
-                          </div>
-
-                          <div class="g-recaptcha" data-sitekey="6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI"></div>
-
-                          <input type="submit" class="button btn-send" value="Send message">
                         </div>
-                      </form>
-                    </div>
+                      </div>
+                    {% empty %}
+                      <p>هیچ پستی یافت نشد.</p>
+                    {% endfor %}
                   </div>
+            
+                  <!-- Pagination -->
+                  {% if posts.has_other_pages %}
+                    <div class="pagination">
+                      {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}">« قبلی</a>
+                      {% endif %}
+            
+                      {% for num in posts.paginator.page_range %}
+                        {% if posts.number == num %}
+                          <span class="current">{{ num }}</span>
+                        {% else %}
+                          <a href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+                      {% endfor %}
+            
+                      {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}">بعدی »</a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+            
                 </div>
               </div>
             </section>
-            <!-- End Contact Subpage -->
+            
 
           </div>
         </div>
