@@ -22,5 +22,6 @@ class Commentform(forms.ModelForm):
     #captcha = CaptchaField()
     class Meta:
         model=Comment
-        fields =['post','name','email','subject','message']
+        #fields =['post','name','email','subject','message']
+        fields =['post','name','message']
 

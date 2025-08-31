@@ -44,7 +44,11 @@
 
 /* ============================================================================= 
 2. General styles
+
+
 ============================================================================= */
+
+
 
 html {
   position: relative;
@@ -481,24 +485,26 @@ body > footer .copyrights {
 }
 
 .pt-page {
+display: none;
+ position: static;
+ top: auto;
   width: 100%;
   max-width: 1032px;
-  height: 0;
-  position: absolute;
-  opacity: 0;
-  top: auto;
-  padding: 0;
-  left: 0;
+ height: auto;
+ opacity: 1;
+ left: 0;
   right: 0;
-  margin: 0 auto;
-  padding-bottom: 50px;
+ margin: 0 auto;
+ padding-bottom: 50px;
+ padding: 0;
   background-color: transparent;
   overflow: hidden;
-  visibility: hidden;
+  visibility: unset;
   -webkit-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  
 }
 
 .pt-page .section-inner {
@@ -2430,7 +2436,7 @@ blockquote footer, blockquote small, blockquote .small {
 
   .mobile-menu-hide * {
     visibility: hidden;
-    opacity: 0;
+    opacity: 1;
   }
 
   .site-main-menu li {
@@ -2540,6 +2546,23 @@ blockquote footer, blockquote small, blockquote .small {
   }
 }
 
+
+
+.page0 {
+  width: 100%;
+  max-width: 1032px;
+  height: 0;
+  position: relative;
+  top: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding-bottom: 50px;
+
+
+}
+
 @media only screen and (max-width: 480px) {
   .portfolio-grid figure {
     width: 100%;
@@ -2553,3 +2576,7 @@ blockquote footer, blockquote small, blockquote .small {
     font-size: 16px;
   }
 }
+
+
+
+

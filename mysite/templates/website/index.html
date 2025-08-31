@@ -1,97 +1,8 @@
+
+
+{% extends 'website/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html  class="loading"  lang="en-US"><!--------ملت وب مرجع خرید و فروش و همچنین انواع قالب های وردپرس و html mellatweb.com------------->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <title>Hossein Ghorbanzadeh</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="PRO Card - Material Resume / CV / vCard Template" />
-    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Material CV, portfolio" />
-    <meta name="author" content="lmtheme" />
-
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/transition-animations.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
-
-    <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
-    <script src="{% static 'js/modernizr.custom.js' %}"></script>
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-  </head>
-
-  <body class="material-template">
-    <!-- Loading animation -->
-    <div class="preloader">
-      <div class="preloader-animation">
-        <div class="preloader-spinner">
-        </div>
-      </div>
-    </div>
-    <!-- /Loading animation -->
-
-    <div id="page" class="page">
-      <!-- Header -->
-      <header id="site_header" class="header mobile-menu-hide">
-        <div class="header-content">
-          <div class="site-title-block mobile-hidden">
-            <div class="site-title">Hossein <span>Ghorbanzadeh</span>
-              
-            </div>
-          </div>
-
-          <!-- Navigation -->
-          <div class="site-nav">
-            <!-- Main menu -->
-            <ul id="nav" class="site-main-menu">
-              <li>
-                <a class="pt-trigger" href="#home" data-animation="62">Home</a><!-- href value = data-id without # of .pt-page. -->
-              </li>
-              <li>
-                <a class="pt-trigger" href="#resume" data-animation="62">Resume</a>
-              </li>
-              <li>
-                <a class="pt-trigger" href="#services" data-animation="62">Services</a>
-              </li>
-              <li>
-                <a class="pt-trigger" href="#portfolio" data-animation="62">Portfolio</a>
-              </li>
-              <li>
-                <a class="pt-trigger" href="#blog" data-animation="62">Blog</a>
-              </li>
-              <li>
-                <a class="pt-trigger" href="#contact" data-animation="62">Contact</a>
-              </li>
-
-              <li>
-                <a class="pt-trigger" href="#contact" data-animation="62">Farsi</a>
-              </li>
-
-            </ul>
-            <!-- /Main menu -->
-          </div>
-          <!-- Navigation -->
-        </div>
-      </header>
-      <!-- /Header -->
-
-      <!-- Mobile Header -->
-      <div class="mobile-header mobile-visible">
-        <div class="mobile-logo-container">
-          <div class="mobile-site-title">Hossein Ghorbanzadeh</div>
-        </div>
-
-        <a class="menu-toggle mobile-visible">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
-      <!-- /Mobile Header -->
-
+{% block content %} 
       <!-- Main Content -->
       <div id="main" class="site-main">
         <!-- Page changer wrapper -->
@@ -100,7 +11,7 @@
           <div class="subpages">
 
             <!-- Home Subpage -->
-            <section class="pt-page" data-id="home">
+              <section  class="pt-page" data-id="home"  style="display: {% if section == 'home' %}block{% else %}none{% endif %};">
               <div class="section-inner start-page-content">
                 <div class="page-header">
                   <div class="row">
@@ -143,11 +54,11 @@
                         <div class="block-title">
                           <h3>About <span>Me</span></h3>
                         </div>
-                        <p class="text-justify">
-                          My name is Hossein. I hold a Ph.D. in Computer Software Engineering and currently work in the petrochemical industry. 
+                        <p class="text-justify"> My name is Hossein. I hold a Ph.D. in Computer Software Engineering and currently work in the petrochemical industry. 
                           I specialize in designing and implementing industrial ERP systems, including CMMS, data loggers, and HSE platforms. 
                           I am proficient in several Python frameworks such as Django for web development, 
                           TensorFlow for machine learning, and Flask for lightweight applications.
+                        </p>
                       </div>
                       <div class="download-resume">
                         <a href="" class="btn btn-secondary">Download Resume</a>
@@ -171,8 +82,10 @@
             </section>
             <!-- End of Home Subpage -->
 
-            <!-- Resume Subpage -->
-            <section class="pt-page" data-id="resume">
+            <!-- Resume Subpage  -->
+            <!--class="pt-page"-->
+            
+              <section class="pt-page" data-id="about" style="display: {% if section == 'about' %}block{% else %}none{% endif %};">
               <div class="section-inner custom-page-content">
                 <div class="page-header color-1">
                   <h2>Resume</h2>
@@ -264,7 +177,7 @@
                         </div>
 
                         <div class="skills-info">
-                          <h4>Data Logger Setup</h4>                               
+                          <h4>Data Logger Setup</h4>                                
                           <div class="skill-container">
                             <div class="skill-percentage skill-1"></div>
                           </div>
@@ -290,7 +203,7 @@
                         </div>
 
                         <div class="skills-info">
-                          <h4>Python Fundamentals Mastery</h4>                               
+                          <h4>Python Fundamentals Mastery</h4>                                  
                           <div class="skill-container">
                             <div class="skill-percentage skill-4"></div>
                           </div>
@@ -329,338 +242,94 @@
 
 
             <!-- Services Subpage -->
-            <section class="pt-page" data-id="services">
-              <div class="section-inner custom-page-content">
-                <div class="page-header color-1">
-                  <h2>Services</h2>
-                </div>
-                <div class="page-content">
-                  <!-- My Services -->
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12">
-                      <div class="block-title">
-                        <h3>My <span>Services</span></h3>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3">
-                      <div class="service-block"> 
-                        <div class="service-info">
-                          <!--<i class="service-icon fa fa-shopping-cart"></i>-->
-                          <div class="service-image">
-                            <img src="{% static 'images/service/web_design_icon.png' %}" alt="Responsive Design" class="mCS_img_loaded">
-                          </div>
-                          <h4>Web Design</h4>
-                          <p>Form-based and REST API development using Django, Flask, and FastAPI.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                      <div class="service-block"> 
-                        <div class="service-info">
-                          <div class="service-image">
-                            <img src="{% static 'images/service/TechnicalTraining.png' %}" alt="Photography" class="mCS_img_loaded">
-                          </div>
-                          <h4>Technical Training</h4>
-                          <p>Training in data mining, neural networks, TensorFlow, Python, Excel, SPSS, Linux.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3">
-                      <div class="service-block"> 
-                        <div class="service-info">
-                          <div class="service-image">
-                            <img src="{% static 'images/service/TechnicalConsulting.png' %}" alt="Creativity" class="mCS_img_loaded">
-                          </div>
-                          <h4>Technical Consulting</h4>
-                          <p>Consulting companies and individuals to find quality, cost-effective software vendors.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3">
-                      <div class="service-block"> 
-                        <div class="service-info">
-                          <div class="service-image">
-                            <img src="{% static 'images/service/Researcher.png' %}" alt="Advetising" class="mCS_img_loaded">
-                          </div>
-                          <h4>Researcher</h4>
-                          <p>Dynamic complex network analysis with strong problem-solving skills.</p>
-                        </div>
-                      </div>
-                    </div>
+              <section  class="pt-page" data-id="services"  style="display: {% if section == 'services' %}block{% else %}none{% endif %};">
+                <div class="section-inner custom-page-content">
+                  <div class="page-header color-1">
+                    <h2>Services</h2>
                   </div>
-                  <!-- End of My Services -->
-                  
+                  <div class="page-content">
+                    <!-- My Services -->
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12">
+                        <div class="block-title">
+                          <h3>My <span>Services</span></h3>
+                        </div>
+                      </div>
+  
+                      <div class="col-sm-6 col-md-3">
+                        <div class="service-block"> 
+                          <div class="service-info">
+                            <!--<i class="service-icon fa fa-shopping-cart"></i>-->
+                            <div class="service-image">
+                              <img src="{% static 'images/service/web_design_icon.png' %}" alt="Responsive Design" class="mCS_img_loaded">
+                            </div>
+                            <h4>Web Design</h4>
+                            <p>Form-based and REST API development using Django, Flask, and FastAPI.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-3">
+                        <div class="service-block"> 
+                          <div class="service-info">
+                            <div class="service-image">
+                              <img src="{% static 'images/service/TechnicalTraining.png' %}" alt="Photography" class="mCS_img_loaded">
+                            </div>
+                            <h4>Technical Training</h4>
+                            <p>Training in data mining, neural networks, TensorFlow, Python, Excel, SPSS, Linux.</p>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="col-sm-6 col-md-3">
+                        <div class="service-block"> 
+                          <div class="service-info">
+                            <div class="service-image">
+                              <img src="{% static 'images/service/TechnicalConsulting.png' %}" alt="Creativity" class="mCS_img_loaded">
+                            </div>
+                            <h4>Technical Consulting</h4>
+                            <p>Consulting companies and individuals to find quality, cost-effective software vendors.</p>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="col-sm-6 col-md-3">
+                        <div class="service-block"> 
+                          <div class="service-info">
+                            <div class="service-image">
+                              <img src="{% static 'images/service/Researcher.png' %}" alt="Advetising" class="mCS_img_loaded">
+                            </div>
+                            <h4>Researcher</h4>
+                            <p>Dynamic complex network analysis with strong problem-solving skills.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End of My Services -->
+                    
+                  </div>
                 </div>
-              </div>
             </section>
             <!-- End of Services Subpage -->
 
 
-            <!-- Portfolio Subpage -->
-            <section class="pt-page" data-id="portfolio">
-              <div class="section-inner custom-page-content">
-                <div class="page-header color-1">
-                  <h2>Portfolio</h2>
-                </div>
-                <div class="page-content">
-
-                  <!-- Portfolio Content -->
-                  <div class="portfolio-content">
-                                
-                    <!-- Portfolio filter -->
-                    <ul id="portfolio_filters" class="portfolio-filters">
-                      <li class="active">
-                        <a class="filter btn btn-sm btn-link active" data-group="all">All</a>
-                      </li>
-                      <li>
-                        <a class="filter btn btn-sm btn-link" data-group="media">Media</a>
-                      </li>
-                      <li>
-                        <a class="filter btn btn-sm btn-link" data-group="illustration">Illustration</a>
-                      </li>
-                      <li>
-                        <a class="filter btn btn-sm btn-link" data-group="video">Video</a>
-                      </li>
-                    </ul>
-                    <!-- End of Portfolio filter -->
-
-                    <!-- Portfolio Grid -->
-                    <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-3">
-
-                      <!-- Portfolio Item 1 -->
-                      <figure class="item" data-groups='["all", "media"]'>
-                        <a class="ajax-page-load" href="portfolio-1.html">
-                          <img src="{% static 'images/portfolio/1.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Media</small>
-                            <i class="fa fa-file-text-o"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 1 -->
-
-                      <!-- Portfolio Item 2 -->
-                      <figure class="item" data-groups='["all", "video"]'>
-                        <a href="https://player.vimeo.com/video/97102654?autoplay=1" title="Praesent Dolor Ex" class="lightbox mfp-iframe">
-                          <img src="{% static 'images/portfolio/2.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Video</small>
-                            <i class="fa fa-video-camera"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 2 -->
-
-                      <!-- Portfolio Item 3 -->
-                      <figure class="item" data-groups='["all","illustration"]'>
-                        <a href="{% static 'images/portfolio/full/3.jpg' %}" class="lightbox" title="Duis Eu Eros Viverra">
-                          <img src="{% static 'images/portfolio/3.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Illustration</small>
-                            <i class="fa fa-image"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 3 -->
-
-                      <!-- Portfolio Item 4 -->
-                      <figure class="item" data-groups='["all", "media"]'>
-                        <a class="ajax-page-load" href="portfolio-2.html">
-                          <img src="{% static 'images/portfolio/4.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Media</small>
-                            <i class="fa fa-file-text-o"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 4 -->
-
-                      <!-- Portfolio Item 5 -->
-                      <figure class="item" data-groups='["all", "illustration"]'>
-                        <a href="{% static 'images/portfolio/full/5.jpg' %}" class="lightbox" title="Aliquam Condimentum Magna Rhoncus">
-                          <img src="{% static 'images/portfolio/5.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Illustration</small>
-                            <i class="fa fa-image"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 5 -->
-
-                      <!-- Portfolio Item 6 -->
-                      <figure class="item" data-groups='["all", "media"]'>
-                        <a class="ajax-page-load" href="portfolio-3.html">
-                          <img src="{% static 'images/portfolio/6.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Media</small>
-                            <i class="fa fa-file-text-o"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 6 -->
-
-                      <!-- Portfolio Item 7 -->
-                      <figure class="item" data-groups='["all", "video"]'>
-                        <a href="https://player.vimeo.com/video/97102654?autoplay=1" title="Nulla Facilisi" class="lightbox mfp-iframe">
-                          <img src="{% static 'images/portfolio/7.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Video</small>
-                            <i class="fa fa-video-camera"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 7 -->
-
-                      <!-- Portfolio Item 8 -->
-                      <figure class="item" data-groups='["all",  "media"]'>
-                        <a class="ajax-page-load" href="portfolio-4.html">
-                          <img src="{% static 'images/portfolio/8.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Media</small>
-                            <i class="fa fa-file-text-o"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 8 -->
-
-                      <!-- Portfolio Item 9 -->
-                      <figure class="item" data-groups='["all","illustration"]'>
-                        <a href="{% static 'images/portfolio/full/9.jpg' %}" class="lightbox" title="Mauris Neque Dolor">
-                          <img src="{% static 'images/portfolio/9.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Illustration</small>
-                            <i class="fa fa-image"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 9 -->
-
-                      <!-- Portfolio Item 10 -->
-                      <figure class="item" data-groups='["all", "video"]'>
-                        <a href="https://player.vimeo.com/video/97102654?autoplay=1" title="Donec Lectus Arcu" class="lightbox mfp-iframe">
-                          <img src="{% static 'images/portfolio/10.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Video</small>
-                            <i class="fa fa-video-camera"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 10 -->
-
-                      <!-- Portfolio Item 11 -->
-                      <figure class="item" data-groups='["all","illustration"]'>
-                        <a href="{% static 'images/portfolio/full/11.jpg' %}" class="lightbox" title="Duis Eu Eros Viverra">
-                          <img src="{% static 'images/portfolio/11.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Illustration</small>
-                            <i class="fa fa-image"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 11 -->
-
-                      <!-- Portfolio Item 12 -->
-                      <figure class="item" data-groups='["all","media"]'>
-                        <a class="ajax-page-load" href="portfolio-5.html">
-                          <img src="{% static 'images/portfolio/12.jpg' %}" alt="">
-                          <div>
-                            <h5 class="name">Project Name</h5>
-                            <small>Media</small>
-                            <i class="fa fa-file-text-o"></i>
-                          </div>
-                        </a>
-                      </figure>
-                      <!-- /Portfolio Item 12 -->
-                    </div>
-                    <!-- /Portfolio Grid -->
-
-                  </div>
-                  <!-- /Portfolio Content -->
-                </div>
-              </div>
-            </section>
-            <!-- /Portfolio Subpage -->
 
             <!-- Blog Subpage -->
-            <section class="pt-page" data-id="blog">
-              <div class="section-inner custom-page-content">
-                <div class="page-header color-1">
-                  <h2>Blog</h2>
-                </div>
-                <div class="page-content">
-
-                  <!-- Blog Posts Grid -->
-                  <div class="blog-masonry two-columns">
-                    <!-- Blog Post 1 -->
-                    {% for post in posts %}
-                    <div class="item">
-                     
-                      <div class="blog-card">
-                        
-                        <div class="media-block">
-                          
-                          <a href="blog-post-1.html">
-                            <img class="post-image img-responsive" src="{{post.image.url}}"  alt="">
-                            <div class="mask"></div>
-                            <div class="post-date">
-                              <span class="day">{{post.published_date|date:"d"}}</span>
-                              <span class="month">{{post.published_date|date:"M"}}</span>
-                              <span class="year">{{post.published_date|date:"Y"}}</span>
-                            </div>
-                          </a>
-                        </div>
-                        <div class="post-info">
-                        <ul class="category">
-                            <li>
-                              {% for cat in post.category.all %}
-                                <a href="{% url 'blogpage:category' cat_name=cat.name %}">{{cat.name}}</a>
-                              {% if not forloop.last %}
-                              {% endif %}
-                              {% endfor %}
-                            </li>
-                        </ul>
-                          
-                          <a class="blog-item-title" href="{% url 'blogpage:single'  pid=post.id %}"><h3>{{post.title|truncatewords:5|safe}}</h3></a>
-                     
-                        </div>
-                        
-                      </div>
-                      
-                    </div>
-                    {% endfor %}
-                    <!-- End of Blog Post 1 -->
+           
+              <!--class="pt-page"-->
+              <section class="pt-page" data-id="blog" style="display: {% if section == 'blog' %}block{% else %}none{% endif %};">
+                <div class="section-inner custom-page-content">
+                  <div class="page-header color-1">
+                    <h2>Blog</h2>
                   </div>
-                  <!-- Blog Posts Grid -->
-                </div>
-              </div>
-            </section>
-            <section class="pt-page" data-id="blog">
-              <div class="section-inner custom-page-content">
-                <div class="page-header color-1">
-                  <h2>Blog</h2>
-                </div>
-                <div class="page-content">
-            
-                  <!-- Blog Posts Grid -->
-                  <div class="blog-masonry two-columns">
-                    {% for post in posts %}
+                  <div class="page-content">
+              
+                    <!-- Blog Posts Grid -->
+                    <div class="blog-masonry two-columns">
+                      {% for post in posts %}
                       <div class="item">
                         <div class="blog-card">
+              
                           <div class="media-block">
                             <a href="{% url 'blogpage:single' pid=post.id %}">
                               <img class="post-image img-responsive" src="{{ post.image.url }}" alt="">
@@ -672,50 +341,184 @@
                               </div>
                             </a>
                           </div>
+              
                           <div class="post-info">
                             <ul class="category">
                               <li>
                                 {% for cat in post.category.all %}
-                                  <a href="{% url 'blogpage:category' cat_name=cat.name %}">{{ cat.name }}</a>{% if not forloop.last %}, {% endif %}
+                                  <a href="{% url 'blogpage:category' cat_name=cat.name %}">{{ cat.name }}</a>
+                                  {% if not forloop.last %}, {% endif %}
                                 {% endfor %}
                               </li>
                             </ul>
+              
                             <a class="blog-item-title" href="{% url 'blogpage:single' pid=post.id %}">
                               <h3>{{ post.title|truncatewords:5|safe }}</h3>
                             </a>
                           </div>
+              
                         </div>
                       </div>
-                    {% empty %}
-                      <p>هیچ پستی یافت نشد.</p>
-                    {% endfor %}
-                  </div>
-            
-                  <!-- Pagination -->
-                  {% if posts.has_other_pages %}
-                    <div class="pagination">
-                      {% if posts.has_previous %}
-                        <a href="?page={{ posts.previous_page_number }}">« قبلی</a>
-                      {% endif %}
-            
-                      {% for num in posts.paginator.page_range %}
-                        {% if posts.number == num %}
-                          <span class="current">{{ num }}</span>
-                        {% else %}
-                          <a href="?page={{ num }}">{{ num }}</a>
-                        {% endif %}
                       {% endfor %}
-            
-                      {% if posts.has_next %}
-                        <a href="?page={{ posts.next_page_number }}">بعدی »</a>
-                      {% endif %}
                     </div>
-                  {% endif %}
+                    <!-- End of Blog Posts Grid -->
+              
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination justify-content-center">
+              
+                        {% if posts.has_previous %}
+                          <li class="page-item">
+                            <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                        {% else %}
+                          <li class="page-item disabled">
+                            <span class="page-link" aria-hidden="true">&laquo;</span>
+                          </li>
+                        {% endif %}
+              
+                        {% for num in posts.paginator.page_range %}
+                          {% if posts.number == num %}
+                            <li class="page-item active">
+                              <span class="page-link">{{ num }}</span>
+                            </li>
+                          {% else %}
+                            <li class="page-item">
+                              <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+              
+                        {% if posts.has_next %}
+                          <li class="page-item">
+                            <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        {% else %}
+                          <li class="page-item disabled">
+                            <span class="page-link" aria-hidden="true">&raquo;</span>
+                          </li>
+                        {% endif %}
+              
+                      </ul>
+                    </nav>
+                    <!-- End Pagination -->
+              
+                  </div>
+                </div>
+              </section>
+              
+   
+            <!-- /Blog Subpage -->
+
+            <!-- Contact Subpage -->
             
+              <section  class="pt-page" data-id="contact"  style="display: {% if section == 'contact' %}block{% else %}none{% endif %};">
+              <div class="section-inner custom-page-content">
+                <div class="page-header color-1">
+                  <h2>Contact</h2>
+                </div>
+                <div class="page-content">
+
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="block-title">
+                        <h3>Get in <span>Touch</span></h3>
+                      </div>
+                      <!-- Google Map -->
+                      <div id="map" class="map"></div>
+                      <!-- End of Google Map -->
+
+                      <div class="contact-info-block">
+                        <div class="ci-icon">
+                          <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="ci-text">
+                          <h5>Assaluyeh, ,Bushehr , Iran</h5>
+                        </div>
+                      </div>
+                      <div class="contact-info-block">
+                        <div class="ci-icon">
+                          <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="ci-text">
+                          <h5>h.ghorbanzadeh@mekpco.ir</h5>
+                        </div>
+                      </div>
+                      <div class="contact-info-block">
+                        <div class="ci-icon">
+                          <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="ci-text">
+                          <h5>+989166417234</h5>
+                        </div>
+                      </div>
+                      <div class="contact-info-block">
+                        <div class="ci-icon">
+                          <i class="fa fa-check"></i>
+                        </div>
+                        <div class="ci-text">
+                          <h5>Freelance Available</h5>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6">
+                      <div class="block-title">
+                        <h3>Contact <span>Form</span></h3>
+                      </div>
+                      <form id="contact-form" method="post" action="contact_form/contact_form.php">
+
+                        <div class="messages"></div>
+
+                        <div class="controls">
+                          <div class="form-group form-group-with-icon">
+                            <i class="fa fa-user"></i>
+                            <label>Full Name</label>
+                            <input id="form_name" type="text" name="name" class="form-control" placeholder required="required" data-error="Name is required.">
+                            <div class="form-control-border"></div>
+                            <div class="help-block with-errors"></div>
+                          </div>
+
+                          <div class="form-group form-group-with-icon">
+                            <i class="fa fa-envelope"></i>
+                            <label>Email Address</label>
+                            <input id="form_email" type="email" name="email" class="form-control" placeholder required="required" data-error="Valid email is required.">
+                            <div class="form-control-border"></div>
+                            <div class="help-block with-errors"></div>
+                          </div>
+
+                          <div class="form-group form-group-with-icon">
+                            <i class="fa fa-pencil fa-fw subject"></i>
+                           
+                            <label>Subject</label>
+                            <input id="form_name" type="text" name="subject" class="form-control" placeholder required="required" data-error="Name is required.">
+                            <div class="form-control-border"></div>
+                            <div class="help-block with-errors"></div>
+                          </div>
+
+                          <div class="form-group form-group-with-icon">
+                            <i class="fa fa-comment"></i>
+                            <label>Message for Me</label>
+                            <textarea id="form_message" name="message" class="form-control" placeholder rows="4" required="required" data-error="Please, leave me a message."></textarea>
+                            <div class="form-control-border"></div>
+                            <div class="help-block with-errors"></div>
+                          </div>
+
+                         
+
+                          <input type="submit" class="button btn-send" value="Send message">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
-            
+            <!-- End Contact Subpage -->
 
           </div>
         </div>
@@ -723,22 +526,5 @@
       </div>
       <!-- /Main Content -->
     </div>
-    <footer>
-      <div class="copyrights">© 2025. This website belongs to Hossein Ghorbanzadeh. <a href="https://www.hosseinghorbanzadeh.com/"> hosseinghorbanzadeh.com</a></div>
-    </footer>
-
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/pages-switcher.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/validator.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.shuffle.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.hoverdir.js' %}"></script>
-    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY"></script>-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.googlemap.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-  </body>
-</html>
+{% endblock %}
+    

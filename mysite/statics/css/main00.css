@@ -1,0 +1,102 @@
+/* main00.css - mobile navigation fixes & overrides */
+
+/* اطمینان از نمایش صحیح hamburger در موبایل */
+.menu-toggle {
+    display: none;
+  }
+  
+  /* فقط قواعد موبایل را اصلاح کنید */
+  @media only screen and (max-width: 991px) {
+    .mobile-visible {
+      display: block !important;
+      visibility: visible !important;
+    }
+    .mobile-hidden {
+      display: none !important;
+      visibility: hidden !important;
+    }
+  
+    /* Header (the sliding panel) */
+    #site_header.header {
+      position: fixed;
+      top: 50px; /* زیر header موبایل */
+      right: 0;
+      width: 280px;
+      max-width: 90%;
+      height: calc(100% - 50px);
+      background-color: #2eca7f;
+      z-index: 1001;
+      overflow-y: auto;
+      transition: transform 0.28s ease, width 0.28s ease;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.15);
+    }
+  
+    /* وقتی کلاس mobile-menu-hide فعال است، منو مخفی باشد */
+    #site_header.mobile-menu-hide {
+      transform: translateX(100%);
+      width: 0;
+      overflow: hidden;
+    }
+    /* وقتی باز است، به حالت اولیه برگردد */
+    #site_header:not(.mobile-menu-hide) {
+      transform: translateX(0);
+    }
+  
+    /* منوی اصلی به صورت ستونی */
+    .site-main-menu {
+      display: block;
+      padding: 20px 8px;
+      margin: 0;
+    }
+  
+    .site-main-menu li {
+      display: block;
+      float: none;
+      margin: 0;
+    }
+  
+    .site-main-menu li a {
+      display: block;
+      color: #fff !important;
+      padding: 12px 12px;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      opacity: 1;
+    }
+  
+    .site-main-menu li.active a,
+    .site-main-menu li a:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff !important;
+    }
+  
+    .menu-toggle {
+      display: inline-block;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+    }
+  
+    /* ensure mobile header is fixed on top */
+    .mobile-header {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 50px;
+      z-index: 1002;
+    }
+  
+    /* prevent header content overlap with page */
+    .site-main {
+      top: 50px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  

@@ -1,0 +1,107 @@
+{%load static %}
+<!DOCTYPE html>
+<html  class="loading"  lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>Hossein Ghorbanzadeh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="PRO Card - Material Resume / CV / vCard Template" />
+    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Material CV, portfolio" />
+    <meta name="author" content="lmtheme" />
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/transition-animations.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+
+    <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+  </head>
+
+  <body class="material-template">
+    <div id="page" class="page">
+      <!-- Header -->
+      <header id="site_header" class="header mobile-menu-hide">
+        <div class="header-content">
+          <div class="site-title-block mobile-hidden">
+            <div class="site-title">Hossein <span>Ghorbanzadeh</span></div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="site-nav">
+            <!-- Main menu -->
+            <ul id="nav" class="site-main-menu">
+              <li>
+                <a class="pt-trigger" href="{% url 'blog:home' %}" data-animation="62">Home</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="{% url 'blog:about' %}" data-animation="62">About</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="{% url 'blog:services' %}" data-animation="62">Services</a>
+              </li>
+              <!--
+              <li>
+                <a class="pt-trigger" href="{% url 'blog:portfolio' %}" data-animation="62">Portfolio</a>
+              </li>
+              -->
+              <li>
+                <a class="pt-trigger" href="{% url 'blogpage:blog' %}" data-animation="62">Blog</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="{% url 'blog:contact' %}" data-animation="62">Contact</a>
+              </li>
+            </ul>
+            <!-- /Main menu -->
+          </div>
+          <!-- Navigation -->
+        </div>
+      </header>
+      <!-- /Header -->
+
+      <!-- Mobile Header -->
+      <div class="mobile-header mobile-visible">
+        <div class="mobile-logo-container">
+          <div class="mobile-site-title">Hossein Ghorbanzadeh</div>
+        </div>
+
+        <a class="menu-toggle mobile-visible">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <!-- /Mobile Header -->
+      {% block content %} 
+
+      {% endblock %}
+
+
+      <footer>
+        <div class="copyrights">© 2025 All rights reserved. Hossein Ghorbanzadeh <a href="https://www.hosseinghorbanzadeh.com/"> hosseinghorbanzadeh.com</a></div>
+      </footer>
+  
+      <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/pages-switcher.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/validator.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.shuffle.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.hoverdir.js' %}"></script>
+      <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY"></script>-->
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+      <script type="text/javascript" src="{% static 'js/jquery.googlemap.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+     
+      
+      
+      
+    </body>
+  </html>

@@ -1,0 +1,131 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %} 
+
+      <!-- Main Content -->
+      <div id="main" class="site-main">
+        <!-- Single Page Content -->
+        <div class="single-page-content">
+          <div class="content-area">
+            <div class="page-content">
+              <!-- Blog Entry Content -->
+              <div class="blog-post-main-image">
+                <img class="post-image img-responsive" src="{{post.image.url}}"alt="" />
+              </div>
+
+              <div class="blog-post-content">
+                <h1>{{post.title}}</h1>
+
+                <div class="entry-meta">
+                  <span class="date"><a href="#"><i class="fa fa-calendar"></i> {{ post.published_date|date:"D d M Y" }}</a></span>
+                  <span class="divider">|</span>
+                  <span class="date"><a href="#"><i class="fa fa-list"></i> {{post.counted_views}} Views</a></span>
+                  <span class="divider">|</span>
+                  <span class="autor"><a href="#"><i class="fa fa-fw fa-user"></i> {{post.author}}</a></span>
+                  <span class="divider">|</span>
+                  <span class="category">
+                   
+                    <i class="fa fa-fw fa-folder">
+                      
+
+                    </i> 
+                    {% for cat in post.category.all %} 
+                    <a href="{% url 'blogpage:category' cat_name=cat.name %}">{{cat.name}}</a>
+                    {% if not forloop.last %}
+											,
+										{% endif %}
+										{% endfor %}
+                  </a>
+                </span>
+                </div>
+
+          
+                <blockquote>
+                  <p>{{ post.content|safe }}</p>
+                    <footer><cite>{{post.author}}</cite></footer>
+                </blockquote>
+
+
+                <div class="entry-meta entry-tags-share">
+                
+                  <ul class="tags">
+                   
+                    <li>  
+                      {% for tag in post.tags.all %} 
+                      <a href="{% url 'blogpage:tag' tag_name=tag.name %}">{{tag.name}}</a>
+                      {% if not forloop.last %}
+                        ,
+                      {% endif %}
+                      {% endfor %}
+                    </li>
+                   
+                  </ul>
+                </div>
+
+                <div class="post-comments">
+                  <div class="block-title">
+                    <h3>
+                      Comments (
+                      {% if comments_count %}
+                          {{ comments_count }}
+                      )
+                      {% else %}
+                          (0)
+                      {% endif %}
+                  </h3>
+                  </div>
+                  {% for command in comments%}
+                  <div class="media">
+                      <a class="pull-left" href="#">
+                          <img class="media-object" src="{% static 'images/blog/comments/comment_photo_1.jpg' %}" alt="">
+                      </a>
+                      <div class="media-body">
+                          <div class="media-heading">
+                              <a href="#">{{command.name}}</a> <span class="divider">|</span> <span class="light-gray">{{command.created_date|date:"d M Y"}}</span>
+                              
+                          </div>
+                          <p> {{command.message}}</p>                        
+                      </div>
+                      {% empty %}
+                  </div>
+                  <p> no  comments </p>
+              {% endfor %}
+                </div>
+
+                <div class="post-comment-add">
+                    <div class="block-title">
+                      <h4>Post Comment</h4>
+                    </div>
+                    
+                      <form method="post" action='{%url "blogpage:single" pid=post.id%}' class="form-add-comment">
+                        {% csrf_token %}
+                      
+                      <input name="post"  type="hidden" value={{post.id}} placeholder="">
+
+
+                        <div class="form-group form-group-with-icon">
+                          <i class="fa fa-user"></i>
+                          <label>Your Name</label>
+                          <input class="form-control" placeholder="" name="name">
+                          <div class="form-control-border"></div>
+                        </div>
+                        <div class="form-group form-group-with-icon">
+                          <i class="fa fa-comment"></i>
+                          <label>Message</label>
+                          <textarea class="form-control" placeholder="" name="message"></textarea>
+                          <div class="form-control-border"></div>
+                        </div> 
+                        <button class="button" type="submit">Post Comment</button>
+                    </form>
+                </div>
+
+              </div>
+              <!-- End of Blog Entry Content -->
+            </div>
+          </div>
+        </div>
+        <!-- End of Single Page Content -->
+      </div>
+      <!-- /Main Content -->
+    </div>
+ {% endblock %}
