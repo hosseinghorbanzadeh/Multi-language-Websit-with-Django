@@ -470,10 +470,40 @@
                       <div class="block-title">
                         <h3>Contact <span>Form</span></h3>
                       </div>
-                      <form id="contact-form" method="post" action="contact_form/contact_form.php">
-
+                      <form  action="{% url 'blog:contact' %}" method="post">
                         <div class="messages"></div>
+                        {% csrf_token %}
+                        <!-- پیام‌ها -->
 
+                        <!-- Modal پیام -->
+                          <div id="message-modal" style="display:none; position: fixed; top: 50%; left: 50%;
+                        transform: translate(-50%, -50%); background: #fff; padding: 20px 30px; border-radius: 8px;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index: 10000; min-width: 250px; text-align: center;">
+
+                        <p id="modal-text" style="margin-bottom: 20px;"></p>
+                        <button id="modal-close" style="padding: 5px 15px; border:none; background:#007bff; color:white; border-radius: 4px; cursor:pointer;">
+                           OK
+                        </butto                           n>
+                        </div>
+
+                        <script>
+                        {% if messages %}
+                            const modal = document.getElementById('message-modal');
+                            const modalText = document.getElementById('modal-text');
+
+                            {% for message in messages %}
+                               modalText.innerText = "{{ message }}";
+                            {% endfor %}
+
+                            modal.style.display = "block";
+
+                            document.getElementById('modal-close').onclick = function() {
+                                modal.style.display = "none";
+                          }
+                        {% endif %}
+                        </script>
+
+                     
                         <div class="controls">
                           <div class="form-group form-group-with-icon">
                             <i class="fa fa-user"></i>
@@ -510,9 +540,15 @@
 
                          
 
-                          <input type="submit" class="button btn-send" value="Send message">
+                          
+                          <button type="submit" class="button btn-send"  style="float: right;">Send Message</button>
+                          <div class="pb-3">
+                            {{form.captcha}}
+                          </div>
                         </div>
                       </form>
+                    
+
                     </div>
                   </div>
                 </div>

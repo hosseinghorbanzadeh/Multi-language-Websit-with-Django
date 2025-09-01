@@ -71,16 +71,15 @@ def portfolio(request):
 #def contact(request):
     #context = {
         #'section': 'contact',  # نمایش بخش درباره ما
-   # }
+    #}
     #return render(request, 'website\index.html', context)
 
-
-
-
-def contact_view(request):
+def contact(request):
     if request.method == 'POST':
+        print('================================',request.method,'===============================')
         form = Contactform(request.POST)
         if form.is_valid():
+            print('valid')
             form.instance.name="Unknown"
             form.save()
             messages.add_message(request, messages.SUCCESS, "Form saved successfully.")
@@ -88,8 +87,5 @@ def contact_view(request):
             messages.error(request, 'The form was not saved successfully.!')
 
     form = Contactform()
-    context = {
-        'section': 'contact',
-        "form": form,  
-    }
-    return render(request, 'website\index.html', context)
+    return render(request,'website\index.html',{"form": form,
+                                          'section': 'contact'})
