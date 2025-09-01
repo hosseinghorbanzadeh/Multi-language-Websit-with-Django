@@ -80,11 +80,34 @@
         }
     }
 
+    // Animate Skills bars
+    function animateSkills() {
+        $('.skill-percentage').each(function() {
+            var $this = $(this);
+            var percentage = $this.data('percentage');
+            $this.css({ width: '0%' });
+            $this.animate({ width: percentage + '%' }, 1);
+        });
+    }
+
+    // Trigger skills animation when visible
+    function checkSkillsVisible() {
+        $('.skills-info').each(function() {
+            var top_of_element = $(this).offset().top;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if(bottom_of_window > top_of_element) {
+                animateSkills();
+            }
+        });
+    }
+
     // On Window load & Resize
     $(window)
         .on('load', function() {
             $(".preloader").fadeOut("slow");
             subpages_resize();
+            checkSkillsVisible();
         })
         .on('resize', function() {
             mobileMenuHide();
@@ -96,6 +119,7 @@
             } else {
                 $('.header').addClass('sticked');
             }
+            checkSkillsVisible();
         })
         .scrollTop(0);
 
@@ -104,18 +128,14 @@
         // Initialize Portfolio grid
         var $portfolio_container = $("#portfolio-grid");
         $portfolio_container.imagesLoaded(function () {
-            setTimeout(function() {
-                portfolio_init();
-            }, 500);
+            setTimeout(function() { portfolio_init(); }, 500);
         });
 
         // Portfolio hover effect init
         $('#portfolio_grid > figure').each(function() { $(this).hoverdir(); });
 
         // Blog grid init
-        setTimeout(function() {
-            $(".blog-masonry").masonry();
-        }, 500);
+        setTimeout(function() { $(".blog-masonry").masonry(); }, 500);
 
         // Mobile menu toggle
         $('.menu-toggle').on("click", function () {
@@ -167,10 +187,7 @@
             type: 'image',
             removalDelay: 300,
             mainClass: 'mfp-fade',
-            image: {
-                titleSrc: 'title',
-                gallery: { enabled: true }
-            },
+            image: { titleSrc: 'title', gallery: { enabled: true } },
             iframe: {
                 markup: '<div class="mfp-iframe-scaler">'+
                         '<div class="mfp-close"></div>'+
