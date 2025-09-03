@@ -49,7 +49,6 @@
 ============================================================================= */
 
 
-
 html {
   position: relative;
   height: 100%;
@@ -852,19 +851,26 @@ display: none;
 }
 
 .start-page-content .page-header .photo {
-  max-width: 280px;
-  margin-bottom: -75px;
-  border: 3px solid #fff;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.1);
-  box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.1);
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  width: 280px;             /* عرض کادر */
+  height: 340px;            /* ارتفاع کادر */
+  border-radius: 30px;      /* گوشه‌های گرد */
+  border: 3px solid #fff;   /* حاشیه سفید */
+  background-color: transparent;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1); /* سایه */
+  overflow: hidden;         /* جلوگیری از بیرون زدن تصویر */
+  margin-bottom: -75px;     /* همون تنظیم قبلی */
+  transition: all 0.3s ease-in-out; /* انیمیشن نرم */
 }
+
+.start-page-content .page-header .photo img {
+  width: 100%;              /* تصویر تمام عرض کادر */
+  height: 100%;             /* تصویر تمام ارتفاع کادر */
+  object-fit: cover;        /* تصویر کادر رو پر کن */
+  display: block;           /* حذف فضای سفید زیر تصویر */
+}
+
+
+
 
 .start-page-content .page-header .photo:hover {
   -webkit-transform: translateY(-9px);
@@ -2515,6 +2521,7 @@ blockquote footer, blockquote small, blockquote .small {
   .start-page-content .page-header .photo {
     max-width: 200px;
     margin: 0 auto;
+
   }
 
   .start-page-content .page-header .title-block h1 {
