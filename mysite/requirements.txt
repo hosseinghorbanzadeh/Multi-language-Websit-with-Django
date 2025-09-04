@@ -2,3 +2,7 @@ Django
 django_recaptcha
 django_summernote
 django_taggit
+pillow
+django-robots
+Faker
+django-compressor
