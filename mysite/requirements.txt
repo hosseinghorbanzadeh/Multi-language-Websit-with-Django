@@ -1,0 +1,4 @@
+Django
+django_recaptcha
+django_summernote
+django_taggit
