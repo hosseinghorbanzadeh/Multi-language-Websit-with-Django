@@ -6,3 +6,4 @@ pillow
 django-robots
 Faker
 django-compressor
+django-debug-toolbar
