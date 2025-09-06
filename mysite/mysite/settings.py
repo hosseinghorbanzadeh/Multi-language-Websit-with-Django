@@ -24,11 +24,15 @@ SECRET_KEY = 'django-insecure-a+9lc+v)u-4f%=c6jotdlj3*6vnukfk34dk=13e7a(o9p$@9ca
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CSRF_COOKIE_SECURE=True
+#CSRF_COOKIE_SECURE=True
 
 SUMMERNOTE_THEME = 'bs4'
 
 ALLOWED_HOSTS = []
+
+
+
+#ALLOWED_HOSTS = ['hosseinghorbanzadeh.com ','www.hosseinghorbanzadeh.com']
 
 
 # Application definition
@@ -56,6 +60,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -115,6 +125,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+STATIC_ROOT=BASE_DIR / 'static'
+MEDIA_ROOT=BASE_DIR / 'media'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "statics",
+]
 
 
 

@@ -135,7 +135,7 @@ def blog_single(request,pid):
         
         #return redirect('/')
 
-
+'''
 def blog_search(request):
     now=timezone.now()
     posts=Post.objects.filter(published_date__lte=now,status=True)
@@ -147,3 +147,4 @@ def blog_search(request):
     context={"posts":posts}
     return render(request,'blog/blog-home.html',context)
 
+'''
